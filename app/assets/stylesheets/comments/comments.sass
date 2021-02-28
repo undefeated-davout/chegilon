@@ -1,0 +1,79 @@
+@import custom
+
+.abstract_comment_color_bar
+  padding: 10px 0
+  background-color: $comments_color
+  background-image: asset-data-url("texture.png")
+  text-align: center
+  color: $flat_white
+
+.comment_color_bar
+  @extend .abstract_comment_color_bar
+  margin-left: -15px
+  margin-right: -15px
+  @media (max-width: 767px)
+    margin-left: -500%
+    margin-right: -500%
+    padding-left: 500%
+    padding-right: 500%
+
+.comment_color_bar_wide
+  @extend .abstract_comment_color_bar
+  text-align: center
+  margin-left: -500%
+  margin-right: -500%
+  padding-left: 500%
+  padding-right: 500%
+
+.comment_color_bar_mini
+  @extend .abstract_comment_color_bar
+  @media (max-width: 767px)
+    margin-left: -500%
+    margin-right: -500%
+    padding-left: 500%
+    padding-right: 500%
+
+.comment_form
+  margin-bottom: 30px
+
+.comments
+  list-style: none
+  margin-bottom: 100px
+  padding: 0
+  .comment
+    li
+      margin-bottom: 30px
+      padding: 10px 0
+      min-height: 60px
+      .top_sentence
+        margin-top: 2px
+        margin-bottom: 10px
+        font-size: 0.8em
+      .middle_info
+        font-size: 0.8em
+        width: 80%
+        margin-bottom: 6px
+        .middle_sentence
+          .user_name
+            padding-right: 5px
+          .timestamp
+            color: $gray-light
+      .edit_link
+        font-size: 0.8em
+        .edit
+          padding-right: 10px
+      .content
+        width: auto
+        margin-top: 5px
+        padding: 10px
+        display: in
+        display: block
+        overflow: auto
+        background: $back_color
+        border: 1px solid $flat_lite_gray
+        border-radius: 3px
+        font-size: 1.0em
+        li
+          padding: 0
+          border-top: none
+          min-height: 0

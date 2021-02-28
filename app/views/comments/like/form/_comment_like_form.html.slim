@@ -1,0 +1,9 @@
+span id="comment_like_form-#{comment.id}"
+  - if user_signed_in?
+    - if current_user.comment_liking?(comment)
+      = render 'comments/like/form/like_unlike/comment_unlike', comment: comment
+    - else
+      = render 'comments/like/form/like_unlike/comment_like', comment: comment
+  - else
+    = link_to new_user_session_path do
+      i.fa.fa-heart.on.logout

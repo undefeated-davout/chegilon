@@ -1,0 +1,6 @@
+= form_for(current_user.active_relationships.build, remote: true) do |f|
+  div= hidden_field_tag :followed_id, user.id
+  div= hidden_field_tag :display_user_id, display_user.id
+  = button_tag(class: "btn btn-default") do
+    i.fa.fa-user-plus.colored
+    | フォローする

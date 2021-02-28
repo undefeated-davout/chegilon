@@ -1,0 +1,117 @@
+@import custom
+@import forms/buttons
+
+.abstract_header_link_setting
+  color: $flat_black
+  text-decoration: none !important
+  &:hover, &:active, &:focus, &:visited, &:link
+    color: $flat_black
+    text-decoration: none !important
+  &:active, &:focus, &:visited, &:link
+    background-color: $title_back_color
+  &:hover
+    background-color: $header_link_hover_color
+
+header
+  .navbar
+    min-height: 40px
+    padding-left: $sidebar-width
+    background-color: $title_back_color
+    border-color: $flat_lite_gray
+    background-image: asset-data-url("texture.png")
+    a
+      @extend .abstract_header_link_setting
+    .container
+      margin: 0 auto
+      padding: 0 !important
+      .navbar-header
+        height: 40px !important
+        padding-left: 18px
+        .navbar-brand
+          height: 40px
+          margin: 0
+          padding: 0
+          .navbar-toggle
+            @extend .abstract_header_link_setting
+            width: 43px
+            height: 34px
+            margin: 3px 10px 0 0
+            padding-top: 6px
+            border-color: $flat_lite_gray
+            &:hover
+              background-color: $flat_black
+            .glyphicon-th-large
+              color: $flat_white
+          .logo
+            margin-top: 12px
+            margin-left: 4px
+            margin-right: 14px
+            color: $title_color_behind
+            font-weight: 100
+            .full_logo
+              width: 70px
+            .only_initial_logo
+              width: 10px
+            .colored
+              color: $title_color_ahead
+            &:hover
+              background-color: $title_back_color !important
+        .navbar-form
+          margin: 3px 0
+          padding: 0
+          .input-group
+            width: 286px
+      .navbar-collapse
+        border-color: $flat_lite_gray
+        li
+          a
+            padding: 10px 10px
+            @extend .abstract_header_link_setting
+            .gravatar
+              margin-right: 2px
+              img
+                max-width: 20px
+                height: auto
+                border-radius: 100%
+          .dropdown-toggle
+            .user_name
+              display: none
+          .dropdown-menu
+            background-color: $title_back_color
+            li
+              a
+                @extend .abstract_header_link_setting
+
+@media (max-width: 767px)
+  header
+    .navbar
+      padding-left: 0
+      .container
+        .navbar-header
+          .navbar-form
+            border: none
+            margin-left: 0 !important
+            .input-group
+              width: calc(100vw - 100px) !important
+              max-width: 290px
+        .navbar-collapse
+          li
+            a
+              margin-right: 20px
+              padding-right: 20px
+            .dropdown-toggle
+              .user_name
+                display: inline
+
+@media (max-width: 479px)
+  .status_logout
+    header
+      .navbar
+        .container
+          .navbar-header
+            .navbar-form
+              margin-left: 20px
+              border: none
+              .input-group
+                width: calc(100vw - 18px) !important
+                max-width: none

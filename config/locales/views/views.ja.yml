@@ -1,0 +1,24 @@
+ja:
+  sign_up: 新規登録(無料)
+  login: ログイン
+  back: 戻る
+  agree_and_entry: 同意して登録
+  entry_password_on_change: 変更時は入力してください
+  need_your_current_password: 必須
+  cancel_my_account: ユーザー情報を削除する
+  unhappy: 一度アカウントを削除すると、二度と元に戻せません。十分ご注意ください。
+  are_you_sure_delete: |
+                        一度アカウントを削除すると、二度と元に戻せません。
+                        本当によろしいですか？
+  characters_minimum: 文字以上入力してください
+  forgot_password: パスワードリセット
+  didnt_receive_confirmation: アカウント有効化メールが届かない
+  didnt_receive_unlock: アカウントがロックされてしまった
+  resend_confirmation: アカウント有効化メールの再送
+  send_password_reset: パスワードリセットメールを送る
+  change_password: パスワードの変更
+  new_password: 新しいパスワード
+  confirm_new_password: 新しいパスワード（確認）
+  edit_user_info: ユーザー情報の変更
+  resend_unlock: ロック解除メールの送信
+  change_image: 画像の変更(Gravatarを利用しています)

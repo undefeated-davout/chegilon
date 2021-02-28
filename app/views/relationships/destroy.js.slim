@@ -1,0 +1,5 @@
+| $("#follow_form-#{@user.id}").html("#{escape_javascript(render('users/follow/form/follow_unfollow/follow', user: @user, display_user: @display_user))}");
+| $("#following-#{@display_user.id}").html('#{@display_user.following.count}');
+| $("#followers-#{@display_user.id}").html('#{@display_user.followers.count}');
+| $("#contribution-#{@display_user.id}").html('#{j(render 'shared/contribution_count', user: @display_user)}');
+| $("#user-followers-#{@user.id}").html('フォロワー(#{@user.followers.count})');

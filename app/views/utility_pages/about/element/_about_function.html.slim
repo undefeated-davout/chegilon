@@ -1,0 +1,9 @@
+.col-sm-3.col-xs-6
+  .about_function_detail_element.scroll_fadein
+    .about_function_detail_element_icon.text-center
+      i.fa class=icon_class
+    .about_function_detail_element_description.text-center
+      = description
+      - description_second ||= nil
+      - if description_second
+        br> # description_second

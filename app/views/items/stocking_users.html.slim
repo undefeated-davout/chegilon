@@ -1,0 +1,14 @@
+- set_meta_tags title: full_title("お気に入りに追加しているユーザー一覧")
+.container.container_padding
+  h3.item_color_header_bar
+    .title= link_to @item.active_title, @item
+  .one_column_container
+    h2.text-center
+      i.fa.fa-file-o
+      span.item_stocks
+        i.fa.fa-star.on
+      | お気に入りに追加しているユーザー
+    .users
+      - @users.each do |user|
+        = render user, display_user: current_user
+      = paginate @users

@@ -1,0 +1,46 @@
+@import custom
+@import forms/buttons
+
+input[type="submit"]
+  margin-top: 5px
+  background-color: $flat_blue
+  border-radius: 3px
+  text-decoration: none
+  color: $flat_white
+  text-align: center
+
+.user_edit
+  .gravatar_edit
+    margin-top: 30px
+    .gravatar_link
+      margin-top: 8px
+  .user_edit_form
+    margin-top: 30px
+  .delete_user
+    margin-top: 100px
+    border: 1px solid $flat_lite_gray
+    .title
+      height: 38px
+      padding: 10px
+      background-color: $danger_red
+      color: $flat_white
+      font-size: 1.1em
+    .content
+      padding: 10px
+      color: $flat_black
+      input[type="submit"]
+        max-width: 200px
+        margin-left: 5px
+        background-color: $flat_lite_gray
+        color: $danger_red_strong
+        &:hover
+          background-color: $danger_red_strong
+          color: $flat_white
+
+.devise_links
+  margin-top: 30px
+  a
+    display: block
+
+.tos_and_privacy_agree
+  margin-top: 16px

@@ -1,0 +1,160 @@
+@import bootstrap-sprockets
+@import bootstrap
+//@import font-awesome-sprockets
+@import font-awesome
+
+// Title's colors
+$title_color_ahead: #fff3b8
+$title_color_behind: #fff3b8
+$title_back_color: #795548
+$header_link_hover_color: #FCEAEB
+$theme_color: #795548
+
+// some colors
+$back_color: white
+$default_link_color: #005CAF
+$flat_white: #FCFAF2
+$flat_black: #737373
+$flat_black_strong: #434343
+$flat_yellow: #F9BF45
+$flat_green: #86C166
+$flat_blue: #81C7D4
+$flat_blue_button_hover: #58B2DC
+$flat_red_light: #FCEAEB
+$flat_red: #F596AA
+$flat_brown: #795548
+$flat_brown_strong: #A6341F
+$flat_lite_gray: #E6E5E1
+$flat_silver: #BFBFBF
+$flat_gray: #8899a6
+$flat_gray_strong: #646C72
+$danger_red: #df3e3e
+$danger_red_strong: #900
+
+// Item's header
+$items_color: #434343
+
+// Comment's header
+$comments_color: #F596AA
+
+// List border color
+$border_color: #e8e8e8
+
+// Size Utility
+$sidebar-width: 190px
+
+// Display by Media size
+// tablet or less
+@media (max-width: 767px)
+  .margin_padding_clear
+    margin: 0
+    padding: 0
+  .margin_padding_mini
+    margin: 5px
+    padding: 5px
+  .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12
+    @extend .margin_padding_clear
+  .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12
+    @extend .margin_padding_clear
+  .container
+    @extend .margin_padding_mini
+  .flash_field
+    .container
+      @extend .margin_padding_clear
+
+@media (max-width: 479px)
+  .br_large_device
+    display: none
+
+@media (min-width: 480px)
+  .br_mini_device
+    display: none
+
+@media (min-width: 768px)
+  .visible_only_mini_divice
+    display: none
+
+// universal
+html
+  margin: 0
+  padding: 0
+  overflow: auto
+  height: 100%
+  background-color: $back_color
+
+body
+  margin: 0
+  padding: 40px 0 0
+  font-family: Arial, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', Osaka, メイリオ, Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif
+  overflow: hidden
+  min-height: 100%
+  color: $flat_black_strong
+  background-color: $back_color
+
+@media (max-width: 479px)
+  body.status_logout
+    padding-top: 80px
+
+section
+  overflow: auto
+
+textarea
+  resize: vertical
+
+.total_container
+  @media (max-width: 767px)
+    width: 100%
+
+.total_content_container
+  height: 100%
+  padding: 0 4px 4px calc(#{$sidebar-width} + 4px)
+  @media (max-width: 767px)
+    padding-left: 4px
+
+.flash_field
+  margin: auto 6px
+
+.container
+  margin: 0
+  padding: 0
+  width: 100%
+
+.container_padding
+  padding-top: 20px
+  padding-bottom: 20px
+
+.full_display_container
+  width: 100%
+  margin: 0 auto
+  padding: 4px 4px 6px
+
+.one_column_container
+  max-width: 700px
+  margin: 0 auto
+
+.form_container
+  max-width: 500px
+  margin: 60px auto 0
+  padding: 50px 60px
+  background-color: white
+  border: 1px solid $border_color
+  border-radius: 3px
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .25)
+  @media (max-width: 479px)
+    margin: 30px 6px 0
+    padding: 50px 12px
+  h1, h2, h3, h4
+    margin-top: 0
+
+.divider
+  background-color: $flat_lite_gray !important
+
+.display_none
+  display: none
+
+ul
+  li
+    color: $flat_black_strong
+
+a
+  color: $default_link_color

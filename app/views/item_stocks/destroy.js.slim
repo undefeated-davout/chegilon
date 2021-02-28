@@ -1,0 +1,4 @@
+| $("#item_stock_form-#{@item.id}").html("#{j(render 'items/stock/form/stock_unstock/item_stock', item: @item)}");
+| $("#item_stock_count-#{@item.id}").html('#{@item.item_stocks.count}');
+| $("#item_stock_star-#{@item.id}").css('-webkit-animation', '');
+| $("#contribution-#{@item.create_user.id}").html('#{j(render 'shared/contribution_count', user: @item.create_user)}');

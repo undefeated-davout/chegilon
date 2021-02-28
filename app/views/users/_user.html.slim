@@ -1,0 +1,11 @@
+li
+  .user_image.pull-left
+    = user.active ? (link_to gravatar_for(user, size: 50), user) : exit_user_image(50)
+  .user_name
+    = user.active ? (link_to user.active_name, user) : exit_user_name
+  - if user.active
+    .follow
+      = render 'users/follow/form/follow_form', user: user, display_user: display_user
+    = link_to followers_user_path(user) do
+      span id="user-followers-#{user.id}" 
+        | フォロワー(#{user.followers.count})

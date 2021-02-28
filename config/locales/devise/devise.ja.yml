@@ -1,0 +1,62 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+ja:
+  devise:
+    confirmations:
+      confirmed: "アカウントが有効化されました。ログインしてください。"
+      send_instructions: "数分以内にアカウント有効化リンクのメールが届きます。"
+      send_paranoid_instructions: "メールアドレスがデータベースに存在すれば、アカウント有効化リンクのメールが届きます。"
+    failure:
+      already_authenticated: "ログイン済です。"
+      inactive: "アカウントが有効化されていません。"
+      invalid: "無効な %{authentication_keys} またはパスワードです。"
+      locked: "このアカウントはロックされています。"
+      last_attempt: "あと1回失敗するとこのアカウントはロックされます。"
+      not_found_in_database: "無効な %{authentication_keys} またはパスワードです。"
+      timeout: "セッションが切れました。ログインしなおしてください。"
+      unauthenticated: "ログインする必要があります。"
+      unconfirmed: "続行する前に、メールアドレスを確認する必要があります。"
+    mailer:
+      confirmation_instructions:
+        subject: "（Chegilon）登録確認"
+      reset_password_instructions:
+        subject: "（Chegilon）パスワードリセット"
+      unlock_instructions:
+        subject: "（Chegilon）ロック解除"
+      password_change:
+        subject: "（Chegilon）パスワード変更"
+    omniauth_callbacks:
+      failure: "ユーザーを認証できませんでした。種類： %{kind} 理由 \"%{reason}\"."
+      success: "アカウント認証に成功しました。 種類： %{kind} "
+    passwords:
+      no_token: "パスワードリセットメール以外のリンクからこのページにアクセスすることはできません。パスワードリセットメールから来た場合は、正しいURLを使用していることをご確認ください。"
+      send_instructions: "数分以内にパスワードリセット用メールが届きます。"
+      send_paranoid_instructions: "メールアドレスがデータベースに存在すれば、パスワードリセット用メールが届きます。"
+      updated: "パスワード変更に成功し、ログインしました。"
+      updated_not_active: "パスワードを変更しました。"
+    registrations:
+      destroyed: "ご利用ありがとうございました。アカウントは正常に削除されました。"
+      signed_up: "ようこそ！アカウントが登録されました。"
+      signed_up_but_inactive: "アカウントが作成されましたが、まだ有効化されていないためログインできませんでした。"
+      signed_up_but_locked: "アカウントが作成されましたが、アカウントがロックされているためログインできませんでした。"
+      signed_up_but_unconfirmed: "アカウント有効化リンクが記載されたメールが送信されました。メールにしたがってアカウントを有効化してください。"
+      update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address."
+      updated: "ユーザー情報が更新されました。"
+    sessions:
+      signed_in: "ログインしました。"
+      signed_out: "ログアウトしました。"
+      already_signed_out: "すでにログアウトしています。"
+    unlocks:
+      send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
+      send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
+      unlocked: "アカウントはロック解除されました。ログインしてください。"
+  errors:
+    messages:
+      already_confirmed: "はすでに有効化済です。ログインしてください。"
+      confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
+      expired: "has expired, please request a new one"
+      not_found: "は見つかりません。"
+      not_locked: "はロックされていません。"
+      not_saved:
+        one: "エラーが検出されました。エラー数： 1"
+        other: "エラーが検出されました。エラー数： %{count}"

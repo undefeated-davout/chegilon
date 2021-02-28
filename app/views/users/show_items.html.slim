@@ -1,0 +1,16 @@
+- set_meta_tags title: full_title("記事一覧")
+.container.container_padding
+  .user_show
+    .container-fluid.row
+      .col-sm-4
+        .user_show_info
+          .user_show_info_data
+            = render 'shared/user_info', user: @user
+      .col-sm-8
+        h3.item_color_bar_mini
+          i.fa.fa-file-o
+          = @user.active_name + "の記事"
+        .items
+          - @items.each do |item|
+            = render item, hit: nil
+          = paginate @items

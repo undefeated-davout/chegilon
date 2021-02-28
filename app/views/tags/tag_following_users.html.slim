@@ -1,0 +1,12 @@
+- set_meta_tags title: full_title("タグをフォローしているユーザー")
+.container.container_padding.one_column_container
+  - if @tag
+    = render 'tags/tag_index', tag: @tag
+  h3.item_tag_color_bar_wide.text-center
+    i.fa.fa-tag
+    span.item_stocks
+    | タグ「#{@tag.name}」をフォローしているユーザー
+  .users
+    - @users.each do |user|
+      = render user, display_user: current_user
+    = paginate @users

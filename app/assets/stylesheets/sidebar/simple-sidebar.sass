@@ -1,0 +1,61 @@
+@import custom
+
+$sidebar-color: #787D7B
+$sidebar-hover-color: #656765
+
+#sidebar-button
+  display: none
+
+#wrapper
+  padding-left: $sidebar-width
+  -webkit-transition: all 0.5s ease
+  -moz-transition: all 0.5s ease
+  -o-transition: all 0.5s ease
+  transition: all 0.5s ease
+  overflow: hidden
+  #sidebar-wrapper
+    z-index: 1000
+    position: fixed !important
+    position: absolute
+    left: $sidebar-width
+    width: $sidebar-width
+    height: 100%
+    margin-left: - $sidebar-width
+    overflow-y: auto
+    background-color: $theme_color
+    -webkit-transition: all 0.5s ease
+    -moz-transition: all 0.5s ease
+    -o-transition: all 0.5s ease
+    transition: all 0.5s ease
+    background-image: asset-data-url("texture.png")
+    .sidebar-nav
+      position: absolute
+      top: 0
+      width: $sidebar-width
+      margin: 0
+      padding: 0
+      list-style: none
+      margin-top: 2px
+      li
+        text-indent: 15px
+        line-height: 40px
+        list-style: none
+        a
+          display: block
+          text-decoration: none
+          color: $flat_white
+          &:hover
+            background-color: $sidebar-hover-color
+            border-left: red 2px solid
+      li.active
+        a
+          background-color: $flat_brown_strong
+
+// on small devise
+@media (max-width: 767px)
+  #sidebar-button
+    display: block
+  #wrapper
+    padding-left: 0
+    &.toggled-2 #sidebar-wrapper
+      width: 0

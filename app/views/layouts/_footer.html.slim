@@ -1,0 +1,19 @@
+footer class="#{'display_none' if footer_display_page?(controller.controller_name, controller.action_name)}"
+  .footer_inner
+    span.footer_copyright
+      | © #{Date.today.year} Chegilon.
+    span.footer_links
+      span.footer_links_about
+        = link_to "Chegilonとは", about_path
+    span.footer_links
+      span.footer_links_tos
+        = link_to "利用規約", tos_path
+    span.footer_links
+      span.footer_links_privacy
+        = link_to "プライバシー", privacy_path
+    span.footer_links
+      span.footer_links_help
+        = link_to "ヘルプ", help_path
+    span.footer_links
+      span.footer_links_opinion
+        = link_to "ご意見", new_opinion_path

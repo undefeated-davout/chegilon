@@ -1,0 +1,11 @@
+- set_meta_tags title: full_title("記事一覧")
+.container.container_padding.one_column_container
+  - if @tag
+    = render 'tags/tag_index', tag: @tag
+  h3.item_color_bar_wide
+    i.fa.fa-file-o
+    = @tag ? "タグ「" + @tag.name + "」で記事されている一覧" : "みんなの記事"
+  .items
+    - @items.each do |item|
+      = render item, hit: nil
+    = paginate @items

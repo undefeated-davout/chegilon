@@ -1,0 +1,17 @@
+- set_meta_tags title: full_title("フォロー中のタグ")
+.container.container_padding
+  .user_show
+    .container-fluid.row
+      .user_show_info
+        .user_show_info_data
+          = render 'shared/user_info', user: @user
+      h3.item_tag_color_bar_wide.text-center
+        i.fa.fa-tags
+          = @user.active_name + "がフォローしているタグ"
+      .tag_index
+        .container-fluid.row
+          - @tags.each do |tag|
+            .col-sm-4.col-md-3.col-lg-2
+              = render 'tags/tag_index', tag: tag
+          .clearfix
+          = paginate @tags

@@ -1,0 +1,16 @@
+- set_meta_tags title: full_title("コメント一覧")
+.container.container_padding
+  .user_show
+    .container-fluid.row
+      .col-sm-4
+        .user_show_info
+          .user_show_info_data
+            = render 'shared/user_info', user: @user
+      .col-sm-8
+        h3.comment_color_bar_mini
+          i.fa.fa-comment-o.fa-flip-horizontal
+          = @user.active_name + "のコメント"
+        .comments
+          - @comments.each do |comment|
+            = render comment, displaytitle: true
+          = paginate @comments

@@ -1,0 +1,12 @@
+- set_meta_tags title: full_title("タグ一覧")
+.container.container_padding
+  h3.item_tag_color_bar_wide.text-center
+    i.fa.fa-tags
+    | タグ一覧
+  .tag_index
+    .container-fluid.row
+      - @tags.each do |tag|
+        .col-sm-4.col-md-3.col-lg-2
+          = render 'tags/tag_index', tag: tag
+      .clearfix
+      = paginate @tags

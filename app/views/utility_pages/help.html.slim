@@ -1,0 +1,28 @@
+- set_meta_tags title: full_title("ヘルプ")
+.container.container_padding.one_column_container
+  .help
+    h2.text-center ヘルプ
+    h3 パスワードを忘れた際
+    ol
+      li
+        p 下記リンクの、パスワードリセットページへ行きます。
+        = link_to ENV["APPLI_URL"] + "/users/password/new" do
+          i.fa.fa-link.colored
+          | パスワードリセット
+      li
+        p 登録済みメールアドレスを入力すると、パスワード再設定URLがメールアドレス宛に届きます。
+    h3 記事を削除したい
+    ul
+      li
+        p 記事の削除は原則不可としております。
+        p Chegilonは一連のやり取りを含め皆様の情報源とすることを目的としているためです。
+    /!/ %h3 不適切な記事やコメントを見つけたとき
+    /!/ %ul
+    /!/   %li
+    /!/     %p 通報機能にてご連絡ください。
+    h3 ご意見、お問い合わせ
+    ul
+      li
+        p 下記リンクよりご連絡ください。
+        p= link_to "ご意見", new_opinion_path
+        p= link_to "お問い合わせ（返信が必要な方）", new_contact_path

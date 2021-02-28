@@ -1,0 +1,9 @@
+span id="item_stock_form-#{item.id}"
+  - if user_signed_in?
+    - if current_user.item_stocking?(item)
+      = render 'items/stock/form/stock_unstock/item_unstock', item: item
+    - else
+      = render 'items/stock/form/stock_unstock/item_stock', item: item
+  - else
+    = link_to new_user_session_path do
+      i.fa.fa-star.on.logout

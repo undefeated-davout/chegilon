@@ -1,0 +1,11 @@
+.form_container
+  h3= t :resend_confirmation
+  = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: {method: :post}) do |f|
+    = devise_error_messages!
+    .field
+      = f.label :email
+      br/
+      = f.email_field :email, required: true, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: 'form-control'
+    .actions
+      = f.submit t('resend_confirmation'), class: "btn btn-primary", data: {disable_with: "お待ち下さい..."}
+  = render "devise/shared/links"

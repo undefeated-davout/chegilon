@@ -1,0 +1,45 @@
+- set_meta_tags title: full_title("貢献一覧")
+.container.container_padding
+  .user_show
+    .container-fluid.row
+      .col-md-4
+        .user_show_info
+          .user_show_info_data
+            = render 'shared/user_info', user: @user
+      .col-md-8
+        .user_show_popular
+          ul.nav.nav-tabs
+            li.active
+              a data-toggle="tab" href="#user_contribution_item"  記事
+            li
+              a data-toggle="tab" href="#user_contribution_comment"  コメント
+            li
+              a data-toggle="tab" href="#user_contribution_follower"  フォロワー
+          .tab-content
+            #user_contribution_item.tab-pane.fade.in.active
+              h3.item_color_bar_mini
+                i.fa.fa-file-o
+                i.fa.fa-star.colored
+                | お気に入りされた#{@user.active_name}の記事
+              .items
+                - @items.each do |item|
+                  = render item, hit: nil
+                = paginate @items
+            #user_contribution_comment.tab-pane.fade
+              h3.comment_color_bar_mini
+                i.fa.fa-comment-o.fa-flip-horizontal
+                i.fa.fa-heart.colored.stroke
+                | いいねされた#{@user.active_name}のコメント
+              .comments
+                - @comments.each do |comment|
+                  = render comment, displaytitle: true
+                = paginate @comments
+            #user_contribution_follower.tab-pane.fade
+              h3.user_color_bar_mini
+                i.fa.fa-user
+                  = @title
+              - if @relationship_users.any?
+                .users.follow
+                  - @relationship_users.each do |relationship_user|
+                    = render relationship_user, display_user: @user
+                  = paginate @relationship_users

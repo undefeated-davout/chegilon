@@ -1,0 +1,49 @@
+.history
+  .comment_area
+    .comment
+      h5
+        | [修正理由/内容]
+      h5
+        = history_count
+        = item_progressing.update_comment
+    .update_info
+      .timestamp
+        | 更新：
+        = item_progressing.updated_at.to_s(:published_on)
+      .user_info
+        .user_image
+          = item_progressing.update_user.active ? (link_to gravatar_for(item_progressing.update_user, size: 40), item_progressing.update_user) : exit_user_image(40)
+        .user_name
+          b= item_progressing.update_user.active ? (link_to item_progressing.update_user.active_name, item_progressing.update_user) : exit_user_name
+        .clearfix
+    .clearfix
+  .item_info style="display: #{first_flg ? '' : 'none'};"
+    h4.title
+      - if item_prev
+        - if item_prev.title == item_progressing.title
+          = item_progressing.title
+        - else
+          = Diffy::Diff.new(item_prev.title, item_progressing.title,
+                  include_plus_and_minus_in_html: true).to_s(:html_simple).html_safe
+      - else
+        = item_progressing.title
+    .tag_list
+      | [タグ]
+      - if item_prev
+        - if item_prev.tag_list_entry == item_progressing.tag_list_entry
+          = item_progressing.tag_list_entry
+        - else
+          = Diffy::Diff.new(item_prev.tag_list_entry,
+                  item_progressing.tag_list_entry,
+                  include_plus_and_minus_in_html: true).to_s(:html_simple).html_safe
+      - else
+        = item_progressing.tag_list_entry
+    .content
+      - if item_prev
+        - if item_prev.content == item_progressing.content
+          = simple_format(h(item_progressing.content))
+        - else
+          = Diffy::Diff.new(item_prev.content, item_progressing.content,
+                  include_plus_and_minus_in_html: true).to_s(:html_simple).html_safe
+      - else
+        = simple_format(h(item_progressing.content))

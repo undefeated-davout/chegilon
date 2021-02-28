@@ -1,0 +1,22 @@
+- set_meta_tags title: full_title("記事：" + @item.active_title + "の変更履歴")
+.container.container_padding
+  h3.item_color_header_bar
+    .title= link_to @item.active_title, @item
+  h3
+    i.fa.fa-history
+    | 変更履歴(#{@item.versions.count - 1})
+  - history_count = @item.versions.count - 1
+  - first_flg = true
+  - @item.versions.reverse_each do |item_version|
+    - if history_count == 0
+      - history_count -= 1
+      - next
+    - if item_version.next
+      - item_progressing = item_version.next.reify
+    - else
+      - item_progressing = @item
+    - item_prev = item_version.reify
+    = render 'items/history/history_item', item_progressing: item_progressing,
+            item_prev: item_prev, history_count: history_count, first_flg: first_flg
+    - history_count -= 1
+    - first_flg = false

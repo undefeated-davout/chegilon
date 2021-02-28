@@ -1,0 +1,46 @@
+.container
+  .about
+    .about_main
+      .about_main_inner
+        .about_main_logo.text-center
+          | Chegilon
+        / %span.colored> colo
+        / telli
+        .about_main_description.text-center
+          #abut_main_description1 体系的な知恵を共有しよう。
+          br#abut_main_description1
+            | Chegilonは、ノウハウを共有し
+            br.br_mini_device> 議論するためのサービスです。
+        .about_features
+          .container-fluid.row
+            = render 'utility_pages/about/element/about_feature', icon_class: "fa-pencil", title: "投稿する",
+                    description: "簡単にきれいで分かりやすい記事を書くことができます。誰でも他の人の記事を編集することができます。"
+            = render 'utility_pages/about/element/about_feature', icon_class: "fa-comments-o", title: "議論する",
+                    description: "記事に対して、気軽に議論することができます。議論をもとに記事を編集し、よりよいノウハウを作り上げます。"
+            = render 'utility_pages/about/element/about_feature', icon_class: "fa-rss", title: "情報収集",
+                    description: "記事、コメント、ユーザー、タグをフォローすることでアクションがあった際に自分のフィードに表示することができます。"
+            = render 'utility_pages/about/element/about_feature', icon_class: "fa-search", title: "検索する",
+                    description: "タイトル、本文、タグから簡単に検索できます。関連度順や、更新日付順で検索することができます。"
+    .about_functions
+      .about_function_title.text-center
+        | Chegilonの機能
+      .about_function_inner
+        .about_function_detail
+          .container-fluid.row
+            = render 'utility_pages/about/element/about_function', icon_class: "fa-pencil",
+                    description: "Markdown記法で", description_second: "簡単に書ける"
+            = render 'utility_pages/about/element/about_function', icon_class: "fa-list-ol",
+                    description: "目次を自動生成"
+            = render 'utility_pages/about/element/about_function', icon_class: "fa-comments-o",
+                    description: "気軽にコメント"
+            = render 'utility_pages/about/element/about_function', icon_class: "fa-users",
+                    description: "貢献度・人気", description_second: "ランキング"
+            = render 'utility_pages/about/element/about_function', icon_class: "fa-tags",
+                    description: "タグで整理"
+            = render 'utility_pages/about/element/about_function', icon_class: "fa-star",
+                    description: "記事お気に入り"
+            = render 'utility_pages/about/element/about_function', icon_class: "fa-rss",
+                    description: "手軽なフィード"
+    / = render 'utility_pages/about/element/about_function', icon_class: "fa-hand-o-up", \
+    /   description: "関連記事の自動表示"
+    = render 'utility_pages/about/element/about_sign_up'

@@ -1,0 +1,39 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=utf-8") http-equiv="Content-Type"
+    /! IE互換表示をさせないために設定
+    meta content=("IE=edge") http-equiv="X-UA-Compatible"
+    /! レスポンシブ・ウェブデザインにする
+    meta content="width=device-width" name="viewport"
+    meta content="IrCO1Wmv7qHa8UsWHLk55LmOAblBT2xChaOOCSc_h_o" name="google-site-verification"
+    = display_meta_tags default_meta_tags
+    = csrf_meta_tags
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = favicon_link_tag
+    = include_gon
+  body class="#{user_signed_in? ? 'status_login' : 'status_logout'}"
+    #fb-root
+    = render 'layouts/sidebar'
+    .total_container
+      = render 'layouts/header'
+      .total_content_container
+        .flash_field
+          .container
+            - flash.each do |message_type, message|
+              - next if message_type == "timedout"
+              - if message_type == "success" || message_type == "danger" || message_type == "notice"
+                section.notice_message_box
+                  p.notice_message_box_text
+                    = message
+              - else
+                = content_tag(:div, class: "alert alert-#{message_type} alert-dismissible", role: "alert") do
+                  = message
+                  button.close aria-label="Close" data-dismiss="alert" type="button"
+                    span aria-hidden="true"  &times;
+        = yield
+        = render partial: "layouts/footer"
+          / = debug(params) if Rails.env.development?
+          / = debug(request.fullpath) if Rails.env.development?
+          / = debug(session[:previous_url]) if Rails.env.development?

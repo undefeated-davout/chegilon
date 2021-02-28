@@ -1,0 +1,27 @@
+.comment
+  li id="comment-#{comment.id}"
+    .top_sentence
+      .exchange.pull-right
+        = render 'comments/like/comment_like_show', comment: comment, fontsize: "middle"
+      - if displaytitle
+        span.item
+          | 記事:
+          b= comment.item.active ? (link_to comment.item.active_title, comment.item) : deleted_item_title
+    .middle_info
+      .user_image.pull-left
+        = comment.user.active ? (link_to gravatar_for(comment.user, size: 40), comment.user) : exit_user_image(40)
+      .middle_sentence
+        .user_name.pull-left
+          = comment.user.active ? (link_to comment.user.active_name, comment.user) : exit_user_name
+        .timestamp
+          | コメント:
+          = comment.created_at.to_s(:published_on)
+    .edit_link.pull-left
+      span.delete
+        - if current_user?(comment.user)
+          = link_to comment, method: :delete, data: {confirm: "削除してよろしいですか？"} do
+            i.fa.fa-trash-o
+            | 削除
+    .clearfix
+    .content
+      = markdown(comment.content)

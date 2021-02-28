@@ -1,0 +1,2 @@
+| $("#tag_follow_form-#{@tag.id}").html("#{j(render 'tags/form/follow_unfollow/tag_unfollow', tag: @tag)}");
+| $("#tag_follow_count-#{@tag.id}").html('フォロワー(#{@tag.tag_following_active_users.count})');

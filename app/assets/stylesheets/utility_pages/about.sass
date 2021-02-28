@@ -1,0 +1,103 @@
+@import custom
+
+.about
+  color: $flat_black_strong
+  .abstract_about_background
+    margin-left: -500%
+    margin-right: -500%
+    padding-left: 500%
+    padding-right: 500%
+    background-image: asset-data-url("texture.png")
+  .about_main
+    @extend .abstract_about_background
+    padding-top: 120px
+    padding-bottom: 40px
+    background-color: $theme_color
+    // color: #fff3b8
+    color: $flat_white
+    .about_main_inner
+      max-width: 1160px
+      margin: 0 auto
+      .about_main_logo
+        font-family: 'Effra Light', sans-serif
+        font-size: 120px
+        font-weight: 100
+        letter-spacing: -2.0px
+        // color: $title_color_behind
+        color: #fff3b8
+        @media (max-width: 479px)
+          font-size: 80px
+        .colored
+          color: #fff3b8
+      .about_main_description
+        font-size: 20px
+        .colored
+          color: #fff3b8
+      .about_features
+        margin-top: 60px
+        margin-bottom: 60px
+        .row
+          padding: 5px
+          .col-xs-6
+            padding: 10px
+            .about_feature
+              min-height: 250px
+              max-width: 270px
+              .about_feature_icon
+                font-size: 80px
+              .about_feature_icon_title
+                font-size: 20px
+              .about_feature_description
+                margin-top: 12px
+                font-size: 14px
+  .about_functions
+    @extend .abstract_about_background
+    padding-top: 80px
+    padding-bottom: 30px
+    // background-color: #7DB9DE
+    color: $flat_black_strong
+    .about_function_title
+      font-size: 24px
+      margin-bottom: 32px
+    .about_function_inner
+      max-width: 700px
+      margin: 0 auto
+      .about_function_detail
+        .row
+          padding: 5px
+          .col-xs-6
+            padding: 10px
+            .about_function_detail_element
+              min-height: 170px
+              max-width: 270px
+              .about_function_detail_element_icon
+                font-size: 64px
+              .about_function_detail_element_description
+                font-size: 16px
+
+// for about sign up partial
+.about_sign_up
+  margin-left: -500%
+  margin-right: -500%
+  padding-left: 500%
+  padding-right: 500%
+  background-image: asset-data-url("texture.png")
+  margin-bottom: 60px
+  padding-top: 80px
+  padding-bottom: 80px
+  background-color: $theme_color
+  color: $flat_white
+  .about_sign_up_title
+    font-size: 24px
+  .about_sign_up_inner
+    max-width: 400px
+    margin: 0 auto
+    .about_sign_up_description
+      margin-top: 20px
+    .about_sign_up_process
+      margin-top: 50px
+    .about_sign_up_buttons
+      margin-top: 50px
+      a
+        padding: 14px 40px
+        font-size: 16px

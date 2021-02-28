@@ -1,0 +1,20 @@
+.item
+  li
+    .user_image
+    / = item.update_user.active ? (link_to gravatar_for(item.update_user, size: 40), item.update_user) : exit_user_image(40)
+    .user_name
+      = item.update_user.active ? (link_to item.update_user.active_name, item.update_user) : exit_user_name
+    .timestamp
+      = item.created_at == item.updated_at ? "　新規記事" : "　更新"
+      | ：#{item.updated_at.to_s(:published_on)}
+    .exchange
+      = render 'items/stock/item_stock_show', item: item, fontsize: "middle"
+      = render 'items/comment/item_comment_show', item: item, fontsize: "middle"
+    br/
+    .title
+      b= item.active ? (link_to item.active_title, item) : deleted_item_title
+    .tag
+      = render 'items/tag/tags', tags: item.tag_list_entry.split(",") if item.tag_list_entry
+    .item_search_highlight
+      - if hit
+        = highlight_hit(hit)

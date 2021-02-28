@@ -1,0 +1,11 @@
+- set_meta_tags title: full_title("お気に入りの記事")
+.container.container_padding.one_column_container
+  h3.item_color_bar_wide
+    i.fa.fa-file-o
+    span.item_stocks
+      i.fa.fa-star.on
+    = @user.active_name + "のお気に入りの記事"
+  .items
+    - @items.each do |item|
+      = render item, hit: nil
+    = paginate @items

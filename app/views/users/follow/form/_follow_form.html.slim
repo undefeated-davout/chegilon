@@ -1,0 +1,14 @@
+- if user_signed_in?
+  - unless current_user?(user)
+    .follow_form
+      span id="follow_form-#{user.id}"
+        - if current_user.following?(user)
+          = render 'users/follow/form/follow_unfollow/unfollow', user: user, display_user: display_user
+        - else
+          = render 'users/follow/form/follow_unfollow/follow', user: user, display_user: display_user
+- else
+  = link_to new_user_session_path do
+    .follow_form
+      .btn.btn-default
+        i.fa.fa-user-plus.colored
+        | フォローする

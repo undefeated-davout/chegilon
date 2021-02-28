@@ -1,0 +1,13 @@
+.about_sign_up
+  .about_sign_up_inner.scroll_fadein
+    .about_sign_up_title.text-center
+      | はじめましょう！
+    .about_sign_up_description.text-center
+      | メールアドレスで簡単にはじめられます。(無料)
+    .about_sign_up_process
+      ol
+        li メールアドレスを登録します。
+        li 送られてきたメールのリンクをクリックして完了です。
+    .about_sign_up_buttons.text-center
+      = link_to new_user_registration_path, class: "btn btn-primary" do
+        | 会員登録(無料)

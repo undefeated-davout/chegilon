@@ -1,0 +1,21 @@
+.form_container
+  h3
+    i.fa.fa-sign-in.colored
+    = t :login
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .field
+      = f.label :email
+      br/
+      = f.email_field :email, required: true, autofocus: true, class: 'form-control'
+    .field
+      = f.label :password
+      br/
+      = f.password_field :password, required: true, autocomplete: "off", class: 'form-control'
+    - if devise_mapping.rememberable?
+      .field
+        = f.label :remember_me, class: "checkbox inline" do
+          = f.check_box :remember_me
+          = f.label :remember_me
+    .actions
+      = f.submit t('login'), class: "btn btn-primary", data: {disable_with: "お待ち下さい..."}
+  = render "devise/shared/links"

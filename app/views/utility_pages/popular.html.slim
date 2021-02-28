@@ -1,0 +1,33 @@
+- set_meta_tags title: full_title("人気ランキング")
+.container.container_padding
+  h1.text-center 7日間の人気ランキング
+  .container-fluid
+    .row
+      .col-md-7
+        .items
+          h3.item_color_bar
+            i.fa.fa-file-o
+            | 人気の記事
+          - if @popular_items.any?
+            = render @popular_items, hit: nil
+      .col-md-5
+        .comments
+          h3.comment_color_bar
+            i.fa.fa-comment-o.fa-flip-horizontal
+            | 人気のコメント
+          - if @popular_items.any?
+            = render @popular_comments, displaytitle: true
+    .row
+      .col-md-7
+        h3.user_color_bar
+          i.fa.fa-user
+          | ユーザー
+        .users
+          = render @popular_users, display_user: current_user
+      .col-md-5
+        h3.tag_color_bar
+          i.fa.fa-tags
+          | タグ
+        .tag_index
+          - @popular_tags.each do |tag|
+            = render 'tags/tag_index', tag: tag

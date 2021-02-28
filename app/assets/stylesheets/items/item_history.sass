@@ -1,0 +1,67 @@
+@import custom
+
+.history
+  min-height: 90px
+  ul
+    margin: 0
+    padding: 0
+    list-style: none
+    .del
+      background-color: #fdd
+      del
+        text-decoration: none
+    .ins
+      background-color: #dfd
+      ins
+        text-decoration: none
+  .comment_area
+    border: 1px $flat_black
+    border-style: solid
+    background-color: $flat_gray
+    background-image: asset-data-url("texture.png")
+    color: $flat_white
+    min-height: 60px
+    margin: 0
+    padding: 5px
+    &:hover
+      background-color: $flat_gray_strong
+      cursor: pointer
+    .comment
+      float: left
+      margin-top: 8px
+      margin-left: 15px
+      h5
+        padding: 0
+    .update_info
+      float: right
+      margin-top: 8px
+      .timestamp
+        float: left
+        color: $flat_white
+        font-size: 0.8em
+      .user_image
+        float: left
+      .user_name
+        float: right
+        a
+          color: $flat_white
+  .item_info
+    .title
+      border: 1px $flat_black
+      border-style: none solid solid solid
+      min-height: 30px
+      padding: 15px
+      margin: 0
+    .tag_list
+      border: 1px $flat_black
+      border-style: none solid solid solid
+      min-height: 30px
+      padding: 15px
+      margin: 0
+    .content
+      border: 1px $flat_black
+      border-style: none solid solid solid
+      min-height: 30px
+      padding: 15px
+      margin-bottom: 60px
+      word-wrap: break-word

@@ -1,0 +1,6 @@
+- set_meta_tags title: full_title("ユーザー一覧")
+.container.container_padding
+  h1.text-center ユーザー
+  .users
+    = render @users, display_user: current_user
+    = paginate @users

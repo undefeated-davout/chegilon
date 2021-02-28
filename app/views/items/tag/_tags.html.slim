@@ -1,0 +1,4 @@
+ul
+  li
+    - tags.each do |tag_name|
+      = link_to tag_name, items_path(tag: tag_name)

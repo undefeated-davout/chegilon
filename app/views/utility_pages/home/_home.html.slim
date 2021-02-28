@@ -1,0 +1,43 @@
+- unless user_signed_in?
+  = render 'utility_pages/about/about'
+.container.container_padding
+  - if user_signed_in?
+    = link_to new_item_path, class: "item_post_button_home_top" do
+      i.fa.fa-pencil-square-o
+      | 投稿する
+  .home_top
+    .container-fluid.row
+      .col-md-9
+        - if user_signed_in?
+          .user
+            = render 'shared/user_info', user: current_user
+      .col-md-3
+        .link_box
+          .list-group
+            = link_to items_path, {class: "list-group-item"} do
+              i.fa.fa-files-o.colored.pull-left
+              .text みんなの記事
+              .clearfix
+            = link_to popular_path, {class: "list-group-item"} do
+              i.fa.fa-comments-o.colored.pull-left
+              .text 人気
+              .clearfix
+            = link_to tags_path, {class: "list-group-item"} do
+              i.fa.fa-tags.colored.pull-left
+              .text タグ一覧
+              .clearfix
+  .container-fluid.row
+    .col-md-7
+      .items
+        h3.item_color_bar
+          i.fa.fa-file-o
+          | 記事フィード
+        = render 'shared/feed_items'
+    .col-md-5
+      .comments
+        h3.comment_color_bar
+          i.fa.fa-comment-o.fa-flip-horizontal
+          | コメントフィード
+        = render 'shared/feed_comments'
+- unless user_signed_in?
+  = render 'utility_pages/about/element/about_sign_up'

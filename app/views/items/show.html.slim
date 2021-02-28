@@ -1,0 +1,68 @@
+- set_meta_tags keywords: @item.tag_list_entry
+- set_meta_tags title: full_title(@item.active_title.slice(0, 124))
+- set_meta_tags description: markdown(@item.content.slice(0, 124))
+.container.container_padding
+  .item_show
+    .item_header
+      .container-fluid.row
+        .col-sm-8
+          p.title= @item.active_title
+          .tag
+            = render 'items/tag/tags', tags: @item.tag_list_entry.split(",") if @item.tag_list_entry
+        .col-sm-4.exchange
+          .container-fluid.row
+            .col-xs-6
+              = render 'items/stock/item_stock_show', item: @item, fontsize: "large"
+              .description お気に入り
+            .col-xs-6
+              span#vertical_line_item_info
+              = render 'items/comment/item_comment_show', item: @item, fontsize: "large"
+              .description コメント
+      .history_link.text-right
+        - if @item.versions.count >= 2
+          = link_to history_item_path(@item.id) do
+            i.fa.fa-history
+            | 変更履歴(#{@item.versions.count - 1})
+        - else
+          i.fa.fa-history
+          | 変更履歴(0)
+    - if user_signed_in?
+      p.item_edit_link.pull-right
+        = link_to edit_item_path(@item) do
+          i.fa.fa-pencil
+          | 記事を編集する
+      - if @item.item_stocks.count <= deletable_item_stock_count
+        .edit_link.delete.text-right.pull-right
+          - if current_user?(@item.create_user)
+            = link_to @item, method: :delete, data: {confirm: "削除した記事を元に戻すことはできません。\n本当に削除してよろしいですか？"} do
+              i.fa.fa-trash-o
+              | 記事削除
+      .clearfix
+    - else
+      br/
+    .detail
+      .container-fluid.row
+        .col-sm-8.item_detail
+          #toc
+          .tocChild
+            p= markdown(@item.content)
+        .col-sm-4
+          .sns_link_box
+            .twitter_link
+              = render 'items/sns/twitter'
+            .facebook_like_link
+              = render 'items/sns/facebook_like'
+            .facebook_share_link
+              = render 'items/sns/facebook_share'
+            .clearfix
+          p.comment_color_bar_mini
+            i.fa.fa-comment-o.fa-flip-horizontal
+            | コメント
+          - if user_signed_in?
+            = render 'comments/form'
+          - else
+            = link_to "コメントする", new_user_session_path, class: "btn btn-primary"
+          .comments
+            - @comments.each do |comment|
+              = render comment, displaytitle: false
+            = paginate @comments

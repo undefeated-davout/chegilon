@@ -1,0 +1,6 @@
+.item_stocks
+  span class=fontsize
+    = render 'items/stock/form/item_stock_form', item: item, fontsize: fontsize
+  span class="#{fontsize}_count"
+    = link_to item.item_stocks.count ,
+            stocking_users_item_path(item.id), id: "item_stock_count-" + item.id.to_s

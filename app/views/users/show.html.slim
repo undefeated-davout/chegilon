@@ -1,0 +1,52 @@
+- set_meta_tags title: full_title(@user.active_name)
+.container.container_padding
+  .user_show
+    .container-fluid.row
+      .col-md-4
+        .user_show_info
+          .user_show_info_data
+            = render 'shared/user_info', user: @user
+            section.follow
+              = render 'users/follow/form/follow_form', user: @user, display_user: @user
+            section.tags
+              .user_show_following_tag
+                = link_to follow_tags_user_path(@user) do
+                  i.fa.fa-tags.colored
+                  | フォロー中のタグ(#{@tags.count})
+              .tag
+                = render 'items/tag/tags', tags: @tags.map {|tag| tag.name}
+            hr/
+            section.user_show_stocking_item
+              = link_to stock_items_user_path(@user) do
+                i.fa.fa-star.colored
+                | お気に入りしている記事(#{@user.active_item_stocking_items.count})
+          hr/
+          .user_show_profile
+            .user_profile_introduction
+              = simple_format(h(@user.self_introduction))
+            hr/
+            .user_profile_site
+              i.fa.fa-link
+              = @user.site_url
+            .user_profile_area
+              i.fa.fa-map-marker
+              = @user.area
+      .col-md-8
+        .user_show_popular
+          ul.nav.nav-tabs
+            li.active
+              a data-toggle="tab" href="#user_show_popular_item" 人気の記事
+            li
+              a data-toggle="tab" href="#user_show_popular_comment" 人気のコメント
+          .tab-content
+            #user_show_popular_item.tab-pane.fade.in.active
+              h3.item_color_bar_mini
+                i.fa.fa-file-o
+                | 人気の記事
+              = render @user.popular_items_on_user, hit: nil
+            #user_show_popular_comment.tab-pane.fade
+              h3.comment_color_bar_mini
+                i.fa.fa-comment-o.fa-flip-horizontal
+                | 人気のコメント
+              .comments
+                = render @user.popular_comments_on_user, displaytitle: true

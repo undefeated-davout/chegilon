@@ -1,0 +1,16 @@
+- set_meta_tags title: full_title("コメントにいいね！しているユーザー")
+.container.container_padding
+  h3.item_color_header_bar
+    .title= link_to @comment.item.active_title, @comment.item
+  .one_column_container
+    .comments
+      = render @comment, displaytitle: false
+    h2.text-center
+      i.fa.fa-comment-o.fa-flip-horizontal
+      span.comment_likes
+        i.fa.fa-heart.on
+      | いいね！しているユーザー
+    .users
+      - @comment.comment_liking_users.each do |user|
+        = render user, display_user: current_user
+    = paginate @users

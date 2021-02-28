@@ -1,0 +1,21 @@
+- set_meta_tags title: full_title(@title)
+.container.container_padding
+  .user_show
+    .container-fluid.row
+      .col-sm-4
+        .user_show_info
+          .user_show_info_data
+            = render 'shared/user_info', user: @user
+            - if @relationship_users.any?
+              .user_avatars
+                - @relationship_users.each do |user|
+                  = link_to gravatar_for(user, size: 20), user
+      .col-sm-8
+        h3.user_color_bar_mini
+          i.fa.fa-user
+          = @title
+        - if @relationship_users.any?
+          .users.follow
+            - @relationship_users.each do |relationship_user|
+              = render relationship_user, display_user: @user
+            = paginate @relationship_users

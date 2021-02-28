@@ -1,0 +1,35 @@
+- set_meta_tags title: full_title("記事検索結果")
+.container.container_padding.one_column_container
+  h3.item_color_bar_wide
+    i.fa.fa-file-o
+    | 記事検索結果
+  .search_form.clearfix
+    = render 'items/search/item_search_form'
+  .search_result
+    | ヒット数:#{@items.count}
+  / .search_order_dropdown.pull-right
+  /   .dropdown
+  /     %button#dropdownMenu1.btn.btn-default.dropdown-toggle{"aria-expanded": "true", "aria-haspopup": "true", "data-toggle": "dropdown", type: "button"}
+  /       %i.fa.fa-sort-amount-desc
+  /       = @sort_type
+  /       %span.caret
+  /     %ul.dropdown-menu.pull-right{"aria-labelledby": "dropdownMenu1"}
+  /       %li
+  /         = link_to(action: "search", q: @keyword, sort_type: "お気に入り数順") do
+  /           - if @sort_type == "お気に入り数順"
+  /             %i.fa.fa-check
+  /           - else
+  /             = "　"
+  /           お気に入り数順
+  /       %li
+  /         = link_to(action: "search", q: @keyword, sort_type: "更新日順") do
+  /           - if @sort_type == "更新日順"
+  /             %i.fa.fa-check
+  /           - else
+  /             = "　"
+  /           更新日順
+  / .clearfix
+  .items
+    - @items.each do |item|
+      = render item, hit: nil
+    = paginate @items

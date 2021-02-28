@@ -1,0 +1,14 @@
+.tag_box
+  .tag_name
+    = link_to tag.name, items_path(tag: tag.name)
+  = render 'tags/form/tag_follow_form', tag: tag
+  .tag_exchange_info.clearfix
+    .tag_count.pull-left
+      = link_to items_path(tag: tag.name) do
+        .fa.fa-file-o.colored
+        | 記事(#{tag.taggings_count})
+    .tag_follower.pull-right
+      = link_to tag_following_users_path(id: tag.id) do
+        .fa.fa-user.colored
+        span id="tag_follow_count-#{tag.id.to_s}"
+          | フォロワー(#{tag.tag_following_active_users.count})

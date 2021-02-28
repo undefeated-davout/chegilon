@@ -1,0 +1,7 @@
+= form_for(current_user.active_relationships.find_by(followed_id: user.id),
+        html: {method: :delete},
+        remote: true) do |f|
+  div= hidden_field_tag :display_user_id, display_user.id
+  = button_tag(class: "btn btn-info following") do
+    span フォロー済
+    span 解除する

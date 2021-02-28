@@ -1,0 +1,141 @@
+@import custom
+@import forms/buttons
+
+.abstract_user_color_bar
+  padding: 10px 0
+  background-color: $flat_blue
+  background-image: asset-data-url("texture.png")
+  text-align: center
+  color: $flat_white
+  .title
+    a
+      color: $flat_white
+  i
+    color: $flat_white
+
+.user_color_bar
+  @extend .abstract_user_color_bar
+  margin-left: -15px
+  margin-right: -15px
+  @media (max-width: 991px)
+    margin-left: -500%
+    margin-right: -500%
+    padding-left: 500%
+    padding-right: 500%
+
+.user_color_bar_wide
+  @extend .abstract_user_color_bar
+  margin-left: -500%
+  margin-right: -500%
+  padding-left: 500%
+  padding-right: 500%
+
+.user_color_bar_mini
+  @extend .abstract_user_color_bar
+  @media (max-width: 991px)
+    margin-left: -500%
+    margin-right: -500%
+    padding-left: 500%
+    padding-right: 500%
+
+.user_avatars
+  overflow: auto
+  margin-top: 10px
+  .gravatar
+    margin: 1px 1px
+  a
+    padding: 0
+
+.users.follow
+  padding: 0
+
+.abstract_user_element
+  .name
+    color: $flat_black_strong
+
+.user_show
+  .row
+    margin: 0
+    padding: 0
+    .col-md-4
+      margin: 0
+      padding: 0
+      .user_show_info
+        max-width: 300px
+        margin-bottom: 60px
+        hr
+          margin: 10px
+        .user_show_info_data
+          @extend .abstract_user_element
+          .user_show_following_tag
+            margin-top: 10px
+        .user_show_profile
+          padding: 6px
+          .user_profile_area
+            margin-top: 4px
+    .col-md-8
+      margin: 0
+      padding: 0
+      .user_show_popular
+        margin: 10px 0 0
+
+// Users index
+.users
+  @extend .abstract_user_element
+  list-style: none
+  margin: 0
+  margin-bottom: 100px
+  li
+    overflow: auto
+    padding: 10px 0
+    border-bottom: 1px solid $gray-lighter
+
+.follow_form
+  .btn
+    width: 160px
+    margin: 10px 0
+  @extend .abstract_follow_button
+
+.gravatar
+  margin-right: 10px
+
+.gravatar_edit
+  margin-top: 15px
+
+.user_box
+  min-width: 280px
+  max-width: 330px
+  margin-top: 10px
+  margin-bottom: 30px
+  padding: 6px
+  border: 1px solid $flat_lite_gray
+  border-radius: 3px
+  .user_info
+    padding: 14px
+    .name
+      font-size: 1.2em
+      margin-top: 46px
+  .stats
+    height: 100px
+    overflow: auto
+    margin-top: 14px
+    margin-left: 0
+    padding: 0
+    text-align: center
+    .row
+      margin: 0 !important
+      .col-xs-4
+        padding: 0 !important
+        height: 46px !important
+    .text
+      font-size: 10px
+      letter-spacing: .02em
+      color: $flat_gray
+    .num
+      font-size: 18px
+      font-weight: 500
+      color: $default_link_color
+    a
+      &:hover
+        text-decoration: none
+        color: blue

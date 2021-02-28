@@ -1,0 +1,41 @@
+@import custom
+
+.abstract_item_mark
+  .middle
+    font-size: 20px
+    a, &:hover
+      text-decoration: none
+  .middle_count
+    font-size: 16px
+  .large
+    font-size: 28px
+    a, &:hover
+      text-decoration: none
+  .large_count
+    font-size: 26px
+    a
+      color: $flat_white
+
+.item_stocks
+  @extend .abstract_item_mark
+  .off
+    color: $flat_silver
+    &:hover
+      color: $flat_yellow
+  .on
+    color: $flat_yellow
+
+.comment_likes
+  @extend .abstract_item_mark
+  .off
+    color: $flat_silver
+    &:hover
+      color: $flat_red
+  .on
+    color: $flat_red
+
+.item_comments
+  @extend .abstract_item_mark
+
+.item_mark
+  @extend .abstract_item_mark

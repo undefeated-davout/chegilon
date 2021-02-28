@@ -1,0 +1,4 @@
+| $("#comment_like_form-#{@comment.id}").html("#{j(render 'comments/like/form/like_unlike/comment_like', comment: @comment)}");
+| $("#comment_like_count-#{@comment.id}").html('#{@comment.comment_likes.count}');
+| $("#comment_like_heart-#{@comment.id}").css('-webkit-animation', '');
+| $("#contribution-#{@comment.user.id}").html('#{j(render 'shared/contribution_count', user: @comment.user)}');

@@ -1,0 +1,12 @@
+.item_comments
+  - if fontsize == "middle"
+    - if item.comments.count >= 1
+      span class=fontsize
+        i.fa.fa-comment-o.fa-flip-horizontal
+      span class="#{fontsize}_count"
+        = link_to item.comments.count, item
+  - else
+    span class=fontsize
+      i.fa.fa-comment-o.fa-flip-horizontal
+    span class="#{fontsize}_count"
+      = item.comments.count

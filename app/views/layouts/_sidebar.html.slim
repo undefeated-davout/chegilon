@@ -1,0 +1,77 @@
+#wrapper.toggled-2
+  #sidebar-wrapper
+    ul#menu.sidebar-nav.nav-pills.nav-stacked
+      li class="#{active_class(controller, "utility_pages", ["home", "top"])}"
+        = link_to root_path do
+          span.fa-stack.fa-lg.pull-left
+            i.fa.fa-home.fa-stack-1x
+          | ホーム
+      - if user_signed_in?
+        li class="#{active_class(controller, "items", "new")}"
+          = link_to new_item_path do
+            span.fa-stack.fa-lg.pull-left
+              i.fa.fa-pencil-square-o.fa-stack-1x
+            | 投稿する
+        li class="#{active_class(controller, "users", "stock_items")}"
+          = link_to stock_items_user_path(current_user) do
+            span.fa-stack.fa-lg.pull-left
+              i.fa.fa-star.colored.fa-stack-1x
+            | お気に入り
+        li class="#{active_class(controller, "items", "index")}"
+          = link_to items_path do
+            span.fa-stack.fa-lg.pull-left
+              i.fa.fa-files-o.fa-stack-1x
+            | みんなの記事
+        li class="#{active_class(controller, "utility_pages", "popular")}"
+          = link_to popular_path do
+            span.fa-stack.fa-lg.pull-left
+              i.fa.fa-comments-o.colored.fa-stack-1x
+            | 人気
+        li class="#{active_class(controller, "tags", "index")}"
+          = link_to tags_path do
+            span.fa-stack.fa-lg.pull-left
+              i.fa.fa-tags.colored.fa-stack-1x
+            | タグ一覧
+        li
+          a href="#"
+            span.fa-stack.fa-lg.pull-left
+              i.fa.fa-user.colored.fa-stack-1x
+            | ユーザー情報
+            i.fa.fa-caret-down
+          ul.nav-pills.nav-stacked
+            li class="#{'active' if target_action?(controller, "users", "show") and current_user?(@user)}"
+              = link_to user_path(current_user) do
+                span.fa-stack.fa-lg.pull-left
+                  i.fa.fa-user.colored.fa-stack-1x
+                | マイページ
+            li class="#{active_class(controller, "registrations", "edit")}"
+              = link_to edit_user_registration_path do
+                span.fa-stack.fa-lg.pull-left
+                  i.fa.fa-cog.colored.fa-stack-1x
+                | 設定
+            li
+              = link_to destroy_user_session_path, method: "delete" do
+                span.fa-stack.fa-lg.pull-left
+                  i.fa.fa-sign-out.fa-stack-1x
+                | ログアウト
+      - else
+        li class="#{active_class(controller, "utility_pages", "popular")}"
+          = link_to popular_path do
+            span.fa-stack.fa-lg.pull-left
+              i.fa.fa-comments-o.colored.fa-stack-1x
+            | 人気
+        li class="#{active_class(controller, "tags", "index")}"
+          = link_to tags_path do
+            span.fa-stack.fa-lg.pull-left
+              i.fa.fa-tags.colored.fa-stack-1x
+            | タグ一覧
+        li class="#{active_class(controller, "sessions", "new")}"
+          = link_to new_user_session_path do
+            span.fa-stack.fa-lg.pull-left
+              i.fa.fa-sign-in.fa-stack-1x
+            | ログイン
+        li class="#{active_class(controller, "registrations", "new")}"
+          = link_to new_user_registration_path do
+            span.fa-stack.fa-lg.pull-left
+              i.fa.fa-user-plus.fa-stack-1x
+            | 無料登録

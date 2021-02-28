@@ -1,0 +1,7 @@
+.user_box
+  .user_info.clearfix
+    .user_image.pull-left
+      = user.active ? (link_to gravatar_for(user, size: 68), user) : exit_user_image(68)
+    .name
+      b= user.active ? user.active_name : exit_user_name
+  = render 'shared/status', user: user

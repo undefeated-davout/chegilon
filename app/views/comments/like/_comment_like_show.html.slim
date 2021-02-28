@@ -1,0 +1,6 @@
+.comment_likes
+  span class=fontsize
+    = render 'comments/like/form/comment_like_form', comment: comment, fontsize: fontsize
+  span class="#{fontsize}_count"
+    = link_to comment.comment_likes.count ,
+            liking_users_comment_path(comment.id), id: "comment_like_count-" + comment.id.to_s

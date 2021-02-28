@@ -1,0 +1,7 @@
+- @q = Item.search(params[:q])
+= search_form_for @q, url: @search_path, html: {class: 'navbar-form'} do |f|
+  .input-group
+    = f.search_field :title_or_tag_list_entry_or_content_cont, class: "form-control"
+    .input-group-btn
+      button.btn.btn-default type="submit"
+        span.glyphicon.glyphicon-search

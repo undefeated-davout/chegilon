@@ -1,0 +1,47 @@
+.full_display_container
+  .item_form
+    = form_for(@item, html: {multipart: true}) do |f|
+      = render 'shared/error_messages', object: f.object
+      .field
+        = f.hidden_field :lock_version
+        = f.text_field :title, required: true, placeholder: "タイトル", class: 'form-control'
+        ul#item-tags
+        .item_detail
+          .left
+            div class="#{controller.action_name == "edit" && "update"}"
+              .col-sm-6
+                .btn-toolbar aria-label="toolbar" role="toolbar"
+                  .btn-group aria-label="font" role="group"
+                    button.btn.btn-default type="button" id="button_bold"
+                      i.fa.fa-bold
+                    button.btn.btn-default type="button" id="button_italic"
+                      i.fa.fa-italic
+                    button.btn.btn-default type="button" id="button_header"
+                      i.fa.fa-font
+                  .btn-group aria-label="outer" role="group"
+                    button.btn.btn-default type="button" id="button_link"
+                      i.fa.fa-link
+                    button.btn.btn-default type="button" id="button_picture"
+                      i.fa.fa-picture-o
+                    button.btn.btn-default type="button" id="button_quote"
+                      i.fa.fa-quote-left
+                  .btn-group aria-label="display" role="group"
+                    button.btn.btn-default type="button" id="button_ul"
+                      i.fa.fa-list-ul
+                    button.btn.btn-default type="button" id="button_ol"
+                      i.fa.fa-list-ol
+                    button.btn.btn-default type="button" id="button_horizon"
+                      i.fa.fa-minus
+                = f.text_area :content,
+                        placeholder: "本文をマークダウンで入力してください・・・",
+                        class: 'form-control', required: true
+          .right
+            div class="#{controller.action_name == "edit" && "update"}"
+              .col-sm-6
+                #preview= markdown(@item.content)
+      = f.hidden_field :update_user_id, value: current_user.id
+      - if controller.action_name == "edit" || controller.action_name == "update"
+        = f.text_field :update_comment,
+                required: true, placeholder: "変更点の簡単な説明を記入してください。",
+                class: 'form-control', value: ""
+      = f.submit "記事", class: "btn btn-primary", data: {disable_with: "お待ち下さい..."}

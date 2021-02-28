@@ -1,0 +1,41 @@
+.stats
+  .container-fluid.row
+    .col-xs-4
+      = link_to items_user_path(user) do
+        .text
+          i.fa.fa-file-o
+          | 記事
+        .num
+          = user.active_create_items.count
+    .col-xs-4
+      = link_to comments_user_path(user) do
+        .text
+          i.fa.fa-comment-o.fa-flip-horizontal
+          | コメント
+        .num
+          = user.comments.count
+    .col-xs-4
+      = link_to contributions_user_path(user) do
+        .text
+          i.fa.fa-heart-o
+          | 貢献
+        .num
+          span id="contribution-#{user.id}"
+            = render 'shared/contribution_count', user: user
+  .container-fluid.row
+    .col-xs-4
+      = link_to following_user_path(user) do
+        .text
+          i.fa.fa-user
+          | フォロー中
+        .num
+          span id="following-#{user.id}"
+            = user.active_following.count
+    .col-xs-4
+      = link_to followers_user_path(user) do
+        .text
+          i.fa.fa-user
+          | フォロワー
+        .num
+          span id="followers-#{user.id}"
+            = user.active_followers.count

@@ -1,0 +1,7 @@
+.comment_form
+  = form_for(@comment, html: {multipart: true}) do |f|
+    = render 'shared/error_messages', object: f.object
+    .field
+      = f.hidden_field :item_id, value: @comment.item_id
+      = f.text_area :content, required: true, rows: 5, placeholder: "どうしたらこの記事を改善できるか思ったことを書いてね！", class: 'form-control'
+    = f.submit "送信", class: "btn btn-primary", data: {disable_with: "お待ち下さい..."}

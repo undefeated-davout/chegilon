@@ -1,0 +1,24 @@
+body
+  header
+    .navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          .navbar-brand
+            #sidebar-button
+              button#menu-toggle-2.navbar-toggle.collapse.in data-toggle="collapse" 
+                .glyphicon.glyphicon-th-large aria-hidden="true" 
+          .navbar-brand.hidden-xs
+            = link_to root_path do
+              .logo.clearfix
+                .full_logo
+                  | Chegilon
+          .navbar-brand.visible-xs
+            = link_to root_path do
+              .logo.clearfix
+                - if user_signed_in?
+                  .only_initial_logo.pull-left> c
+                - else
+                  .full_logo
+                    | Chegilon
+          .navbar-brand
+            = render 'items/search/item_search_form'

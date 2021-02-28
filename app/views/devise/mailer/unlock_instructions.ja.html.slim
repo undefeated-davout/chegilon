@@ -1,0 +1,7 @@
+p
+  | こんにちは#{@resource.name}さん メールアドレス：#{@resource.email}
+p ログイン失敗の回数が一定数を超えたため、アカウントをロックしました。
+p 下記リンクにアクセスし、アカウントのロックを解除してください。
+p= link_to t('unlock_account'), unlock_url(@resource, unlock_token: @token)
+| \
+p © # Date.today.year  Chegilon.

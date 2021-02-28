@@ -1,0 +1,16 @@
+.container.container_padding.one_column_container
+  .opinion
+    h2.text-center ご意見
+    .item_form
+      = form_for(@opinion, html: {multipart: true}) do |f|
+        = render 'shared/error_messages', object: f.object
+        .field
+          = f.text_area :content, required: true, placeholder: "Chegilonについてのご意見をお聞かせください。",
+                  size: "20x10", maxlength: 1024, class: 'form-control'
+        = f.submit "送信", class: "btn btn-primary", data: {disable_with: "お待ち下さい..."}
+      br
+      p いただいたご意見への返信は行っておりません。
+      p
+        | 返信の必要な内容については、
+        = link_to "こちら", new_contact_path
+        | からお問い合わせください。
